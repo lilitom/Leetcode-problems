@@ -10,7 +10,7 @@ click to show more practice.
 #Author:Guohao
 #coding=utf-8
 #https://leetcode.com/problems/maximum-subarray/#/description
-
+#http://blog.csdn.net/linhuanmars/article/details/21314059
 
 # 动态规划问题
 这是一道非常经典的动态规划的题目，用到的思路我们在别的动态规划题目中也很常用，以后我们称为”局部最优和全局最优解法“。
