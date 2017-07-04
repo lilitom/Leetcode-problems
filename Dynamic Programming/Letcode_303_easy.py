@@ -14,6 +14,7 @@ There are many calls to sumRange function.
 #South China University of Technology  
 #Author:Guohao
 #coding=utf-8
+#from https://leetcode.com/problems/range-sum-query-immutable/#/description
 class NumArray(object):
     def __init__(self, nums):
         """
