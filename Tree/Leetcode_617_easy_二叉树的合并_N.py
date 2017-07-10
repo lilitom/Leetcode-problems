@@ -50,7 +50,21 @@ class Solution(object):
         ans.left = self.mergeTrees(t1 and t1.left, t2 and t2.left)
         ans.right = self.mergeTrees(t1 and t1.right, t2 and t2.right)
         return ans
-
+    def mergeTrees2(self, t1, t2):#这种递归方式比较好理解一些
+        
+        if not t1 and not t2:
+            return None
+        
+        elif t1 and not t2:
+            return t1
+        
+        elif t2 and not t1:
+            return t2
+        
+        r = TreeNode(t1.val + t2.val)
+        r.left = self.mergeTrees(t1.left, t2.left)
+        r.right = self.mergeTrees(t1.right, t2.right)
+        return r
 
 input_3=TreeNode(3)
 input_4=TreeNode(4)
