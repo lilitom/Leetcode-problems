@@ -6,6 +6,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
+
 class Solution:
     # @param {TreeNode} root
     # @return {integer}
@@ -30,15 +31,36 @@ class Solution:
             if curwidth > maxwidth:
                 maxwidth = curwidth
         return maxwidth
+        
     def getheight(self,root): #求二叉树的高度
         if not root:
             return 0
         left_height=self.getheight(root.left)
         right_height=self.getheight(root.right)
         return 1+max(left_height,right_height)
+        
+    def preorder(self,root):#前序遍历
+        if root==None:
+            return
+        print root.val
+        self.preorder(root.left)
+        self.preorder(root.right)
+        
+    def inorder(self,root):#中序遍历
+        if root==None:
+            return
+        self.inorder(root.left)
+        print root.val
+        self.inorder(root.right)
 
+    def postorder(self, root):#后序遍历
+        if root == None:
+            return
+        self.postorder(root.left)
+        self.postorder(root.right)
+        print root.val
 
-    def DepTraval(self, root): #深度遍历
+    def DepTraval(self, root): #深度遍历--利用到栈
         if not root:
             return None
         stack=[root]
@@ -49,6 +71,19 @@ class Solution:
                 stack.append(Node.right)
             if  Node.left:
                 stack.append(Node.left)
+                
+    def BroTraval(self,root):#广度遍历--利用队列
+        if not root:
+            return None
+        queue=Queue.Queue()
+        queue.put(root)
+        while queue:
+            Node=queue.get()
+            print Node.val
+            if  Node.left:
+                queue.put(Node.left)
+            if  Node.right:
+                queue.put(Node.right)
 
 
     def BinTreePath(self,root):#求得任意到叶子节点的路径
@@ -64,20 +99,6 @@ class Solution:
             if Node.right:
                 stack.append((Node.right,ls+str(Node.val)+'->'))
         return res
-
-
-    def BroTraval(self,root):#广度遍历(层次遍历)
-        if not root:
-            return None
-        queue=Queue.Queue()
-        queue.put(root)
-        while queue:
-            Node=queue.get()
-            print Node.val
-            if  Node.left:
-                queue.put(Node.left)
-            if  Node.right:
-                queue.put(Node.right)
 
 
     def FindLeave(self,root): #叶子节点的值
