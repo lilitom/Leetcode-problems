@@ -8,6 +8,8 @@ lists_befor=[x for x in xrange(10)]
 nums=random.sample(lists_befor, 10)
 print '≈≈–Ú«∞',nums
 
+
+
 #√∞≈›≈≈–Ú--Ωªªª≈≈–Ú----------------------------------------------
 def bubble_sort(nums):
     for i in range(len(nums)):
@@ -17,6 +19,8 @@ def bubble_sort(nums):
     return nums
 
 
+    
+    
 #≤Â»Î≈≈–Ú---------------------------------------------------------
 def insert_sort(nums):
     for i in range(1,len(nums)):
@@ -30,6 +34,7 @@ def insert_sort(nums):
 
 
 
+    
 #œ£∂˚≈≈–Ú--≤Â»Î≈≈–Ú----------------------------------------------
 def shell_sort(lists):
     count = len(lists)
@@ -51,6 +56,8 @@ def shell_sort(lists):
     return lists
 
 
+    
+    
 #øÏÀŸ≈≈–Ú-Ωªªª≈≈–Ú--------------------------------------------
 def parttion(v, left, right):
     key = v[left]
@@ -72,6 +79,7 @@ def quicksort(v, left, right):
     return v
 
 
+    
 #—°‘Ò≈≈–Ú-ºÚµ•—°‘Ò≈≈–Ú-------------------------------------------
 def select_sort(nums):
     for i in range(len(nums)):
@@ -82,6 +90,7 @@ def select_sort(nums):
         nums[min_po],nums[i]=nums[i],nums[min_po]
     return nums
 
+    
 #πÈ≤¢≈≈–Ú--------------------------------------------------------
 def merge(left,right):
     i=0
@@ -106,6 +115,20 @@ def merge_sort(nums):
     return merge(left,right)
 
 
+#ª˘ ˝≈≈–Ú
+import math
+def radix_sort(lists, radix=10):
+    k = int(math.ceil(math.log(max(lists), radix)))
+    bucket = [[] for i in range(radix)]
+    for i in range(1, k+1):
+        for j in lists:
+            bucket[j/(radix**(i-1)) % (radix**i)].append(j)
+        del lists[:]
+        for z in bucket:
+            lists += z
+            del z[:]
+    return lists    
+    
 #≤‚ ‘----------------------------------------------------------------------
 lists_befor=[x for x in xrange(10)]
 nums=random.sample(lists_befor, 10)
