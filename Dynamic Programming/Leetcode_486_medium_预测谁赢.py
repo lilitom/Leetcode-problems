@@ -73,6 +73,25 @@ print Result
 
 
 
+
+#Recursive
+nums=[1,5,233,7]
+def PredictWiner(nums):
+    if nums==None or len(nums)<1:
+        return False
+    totalsum=sum(nums)
+    firstPlaySum=helper(nums,0,len(nums)-1)
+    secondPlaySum=totalsum-firstPlaySum
+    return firstPlaySum>=secondPlaySum
+def helper(nums,start,end):
+    if start>end:
+        return 0
+    first=nums[start]+min(helper(nums,start+2,end),helper(nums,start+1,end-1))
+    last=nums[end]+min(helper(nums,start+1,end-1),helper(nums,start,end-2))
+    return max(first,last)
+print PredictWiner(nums)
+
+
 #参考：https://leetcode.com/problems/predict-the-winner/#/description
 
 #相似题目
