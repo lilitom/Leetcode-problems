@@ -81,7 +81,7 @@ int main()
     for (i = n - m + 1; i <= n; ++i)
         ans = min(ans, f[i]);
     printf("%d\n", ans);
-}
+} 注意到head和tail的范围
 
 
 
